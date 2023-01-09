@@ -38,6 +38,7 @@ namespace Enigma
         public static string Encode(string message, int incrementNumber, List<string> rotors)   
         {
             // TO DO - add your implementation
+            // Lets imagine this is the implementation
             throw new NotImplementedException();
         }
 
