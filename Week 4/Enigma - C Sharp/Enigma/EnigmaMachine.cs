@@ -140,7 +140,6 @@ namespace Enigma
         private static string ApplyRotor(string message, string rotor)
         {
             // TO DO - add your implementation
-            //TODO Apply rotor method to go here somewhere in the future
             throw new NotImplementedException();
         }
 
