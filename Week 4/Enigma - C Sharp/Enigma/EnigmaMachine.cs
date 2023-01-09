@@ -42,6 +42,13 @@ namespace Enigma
             throw new NotImplementedException();
         }
 
+ public static string Dencode(string message, int incrementNumber, List<string> rotors)   
+        
+            // TO DO - add your implementation
+            // Lets imagine this is the implementation for the Decode
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// The Decode method should decode the supplied message by reversing the steps in the encode.
         /// The returned message should be in upper case with the character '?' replaced with spaces 
