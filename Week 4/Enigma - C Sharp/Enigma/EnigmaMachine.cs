@@ -97,7 +97,6 @@ namespace Enigma
         /// and full stops replaced by a '€'</returns>
         public static string FormatInputMessage(string message)
         {
-            return "";
             // TO DO - add your implementation
             throw new NotImplementedException();
         }
@@ -216,10 +215,10 @@ namespace Enigma
             //**********                                                                                            ******
             //**********  TEST DATA ONLY TO BE ROMOVED WHEN   FormatInputMessage AND CaesarShift ARE IMPLEMENTED    ******
             //**********                                                                                            ******
-            /********/
-            /*      */      rotor = "HFPMRIBTJWYDXQLGUKOVSNAZEC";
-            /**     **/     message = "HBKRR";
-            /*****
+            /**********/
+            /**********/    rotor = "HFPMRIBTJWYDXQLGUKOVSNAZEC";
+            /**********/    message = "HBKRR";
+            /**********/
             //***********************************************************************************************************
             //******************TEST DATA ENDS HERE***********************************************************************/
 
