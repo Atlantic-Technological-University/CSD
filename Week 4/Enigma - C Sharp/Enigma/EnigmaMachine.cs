@@ -51,6 +51,7 @@ namespace Enigma
             foreach (string rotor in rotors)
             {
                 message = ApplyRotor(message, rotor);
+               
             }            
 
             return message;
@@ -96,6 +97,7 @@ namespace Enigma
         /// and full stops replaced by a '€'</returns>
         public static string FormatInputMessage(string message)
         {
+            return "";
             // TO DO - add your implementation
             throw new NotImplementedException();
         }
@@ -139,6 +141,7 @@ namespace Enigma
         /// specified shift number.</returns>
         public static string CaesarShift(string message, int shift, bool encode)
         {
+            return "";
             // TO DO - add your implementation
             throw new NotImplementedException();
         }
@@ -184,7 +187,7 @@ namespace Enigma
                     //we know its equivalent will be at the same position in rotors array.
                     if (alpha[j].Equals(message[i]))
                     {
-                        encodedMessage += rotor[j];
+                        encodedMessage += rotor[i];
                         break;
                     }
                 }                
@@ -208,26 +211,41 @@ namespace Enigma
         /// with the corresponding character in the rotor. </returns>
         private static string ReverseRotor(string message, string rotor)
         {
-            
-            /* I THOUGHT THIS WOULD'VE BEEN IN REVERSE ORDER
-             * GET A CHARRACTER IN message, FIND ITS POSISION IN THE roter AND 
-             * THEN CHANGE IT WITH ITS EQUIVALENT IN THE ALPHABET
-             * 
-             * BUT
-             * 
-             * THIS LOOKS TO ME TO FUNCTION EXACTLY AS ApplyRotor Method.
-             * IF THIS IS IS THE CASE, WOULD IT BE FAIR TO CALL ApplyRotor AND 
-             * USE IT AS THE RETURN VALUE/STRING FOR THIS METHOD?????? THE
-             * 
-             * FOR EXAMPLE 
-                return ApplyRotor(message, rotor);
 
-                IF SO, WHY WOULD WE NEED THIS??????????????
-                
-                SURELY, I MUST BE MISSING SOMETHING HERE!!!!               
+            //***********************************************************************************************************
+            //**********                                                                                            ******
+            //**********  TEST DATA ONLY TO BE ROMOVED WHEN   FormatInputMessage AND CaesarShift ARE IMPLEMENTED    ******
+            //**********                                                                                            ******
+            /********/
+            /*      */      rotor = "HFPMRIBTJWYDXQLGUKOVSNAZEC";
+            /**     **/     message = "HBKRR";
+            /*****
+            //***********************************************************************************************************
+            //******************TEST DATA ENDS HERE***********************************************************************/
 
-             */
 
+            string alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            string encodedMessage = "";
+
+            for (int i = 0; i < message.Length; i++)
+            {
+                for (int j = 0; j < rotor.Length; j++)
+                {
+                    int b = j;
+                    //26 letters in  alphabet array and 26 letters in rotors Array 
+                    //the positions of every character in one mirrors the other.
+                    //as soon as the current character is found in the roter array,
+                    //we know its equivalent will be at the same position in alpha array.
+                    if (rotor[j].Equals(message[i]))
+                    {
+                        encodedMessage += alpha[j];
+                        break;
+                    }
+                }
+            }
+
+            return encodedMessage;
 
             // TO DO - add your implementation
             throw new NotImplementedException();
