@@ -77,7 +77,7 @@ namespace Enigma
         /// <returns>A decoded string.</returns>
         public static string Decode(string message, int incrementNumber, List<string> rotors)
         {
-            return "";
+            
             // TO DO - add your implementation
             throw new NotImplementedException();
         }
@@ -141,7 +141,7 @@ namespace Enigma
         /// specified shift number.</returns>
         public static string CaesarShift(string message, int shift, bool encode)
         {
-            return "";
+            
             // TO DO - add your implementation
             throw new NotImplementedException();
         }
