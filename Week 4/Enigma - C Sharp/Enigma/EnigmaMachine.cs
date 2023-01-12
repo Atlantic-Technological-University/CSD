@@ -39,6 +39,7 @@ namespace Enigma
         {
             // TO DO - add your implementation
             throw new NotImplementedException();
+            //Imagine a cool implementation here
         }
 
         /// <summary>
