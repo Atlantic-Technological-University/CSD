@@ -67,7 +67,7 @@ public final class Enigma {
         // TO DO - add your implementation
     }
 
-    public static String caesarShift(String message, int shift, bool encode){
+    public static String caesarShift(String message, int shift, boolean encode){
         /* The CaesarShift method should take a message and shift each character [A-Z] by the 
         value shift, incrementing or decrementing the value of shift by 1 or -1 with each 
         character shifted if given a positive shift value if encode = true otherwise shifted
