@@ -1,6 +1,7 @@
 // / Author: Dr. Shane Wilson
 /// Description: Add a useful description of this file
 
+import java.util.HashMap;
 import java.util.List;
 
 public final class Enigma {
@@ -86,7 +87,22 @@ public final class Enigma {
                                                  
         Example input message: "Apples", rotor: HFPMRIBTJWYDXQLGUKOVSNAZEC
         Example outout: "HGGDRO" */
-        // TO DO - add your implementation
+        char[] alphabetArr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        char[] rotorArr = rotor.toCharArray();
+
+        HashMap<Character, Character> wiring = new HashMap<>();
+
+        for (int i = 0; i < alphabetArr.length; i++) {
+            wiring.put(alphabetArr[i], rotorArr[i]);
+        }
+
+        StringBuilder rotoredMessage = new StringBuilder();
+
+        for (int i = 0; i < message.length(); i++) {
+            rotoredMessage.append(wiring.get(message.charAt(i)));
+        }
+
+        return rotoredMessage.toString();
     }
 
     private static String reverseRotor(String message, String rotor){
@@ -94,5 +110,22 @@ public final class Enigma {
         with the corresponding character in the rotor as above. */
         
         // TO DO - add your implementation
+
+        char[] alphabetArr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        char[] rotorArr = rotor.toCharArray();
+
+        HashMap<Character, Character> wiring = new HashMap<>();
+
+        for (int i = 0; i < alphabetArr.length; i++) {
+            wiring.put(rotorArr[i], alphabetArr[i]);
+        }
+
+        StringBuilder rotoredMessage = new StringBuilder();
+
+        for (int i = 0; i < message.length(); i++) {
+            rotoredMessage.append(wiring.get(message.charAt(i)));
+        }
+
+        return rotoredMessage.toString();
     }
 }
