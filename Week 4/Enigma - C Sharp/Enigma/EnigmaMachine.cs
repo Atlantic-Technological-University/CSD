@@ -97,8 +97,35 @@ namespace Enigma
         /// with full stops '.'</returns>
         public static string FormatOutputMessage(string message)
         {
-            // TO DO - add your implementation
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(message))
+            {
+                return message;
+            }
+
+            // Replace '?' with space and '€' with full stop
+            message = message.Replace('?', ' ').Replace('€', '.');
+
+            // Convert the entire message to lower case
+            message = message.ToLower();
+
+            // Capitalize the first character and every character after a full stop
+            char[] messageArray = message.ToCharArray();
+            bool capitalizeNext = true;
+
+            for (int i = 0; i < messageArray.Length; i++)
+            {
+                if (capitalizeNext && char.IsLetter(messageArray[i]))
+                {
+                    messageArray[i] = char.ToUpper(messageArray[i]);
+                    capitalizeNext = false;
+                }
+                else if (messageArray[i] == '.')
+                {
+                    capitalizeNext = true;
+                }
+            }
+
+            return new string(messageArray);
         }
 
         /// <summary>
