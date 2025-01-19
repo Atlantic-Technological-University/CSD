@@ -139,8 +139,33 @@ namespace Enigma
         /// with the corresponding character in the rotor. </returns>
         private static string ApplyRotor(string message, string rotor)
         {
-            // TO DO - add your implementation
-            throw new NotImplementedException();
+
+            if (rotor.Length != 26)
+                throw new ArgumentException("Rotor must be exactly 26 characters long");
+
+            message = message.ToUpper();
+
+            char[] result = new char[message.Length];
+
+            for (int i = 0; i < message.Length; i++)
+            {
+                char c = message[i];
+
+                // Only substitute letters A-Z
+                if (c >= 'A' && c <= 'Z')
+                {
+                    // Find index in the alphabet (A=0, B=1, ..., Z=25)
+                    int index = c - 'A';
+                    result[i] = rotor[index]; 
+                }
+                else
+                {
+                    // Keep non-alphabetic characters unchanged
+                    result[i] = c; 
+                }
+            }
+
+            return new string(result);
         }
 
 
@@ -155,8 +180,36 @@ namespace Enigma
         /// with the corresponding character in the rotor. </returns>
         private static string ReverseRotor(string message, string rotor)
         {
-            // TO DO - add your implementation
-            throw new NotImplementedException();
+            if (rotor.Length != 26)
+                throw new ArgumentException("Rotor must be exactly 26 characters long.");
+
+            message = message.ToUpper();
+
+            char[] result = new char[message.Length];
+
+            for (int i = 0; i < message.Length; i++)
+            {
+                char c = message[i];
+
+                // Only process letters A-Z
+                if (c >= 'A' && c <= 'Z')
+                {
+                    // Find where this character appears in the rotor
+                    int index = rotor.IndexOf(c); 
+                    if (index == -1)
+                        throw new ArgumentException("Invalid rotor mapping.");
+
+                    // Convert back to original letter
+                    result[i] = (char)('A' + index); 
+                }
+                else
+                {
+                    // Keep non-alphabetic characters unchanged
+                    result[i] = c; 
+                }
+            }
+
+            return new string(result);
         }
     }
 }
