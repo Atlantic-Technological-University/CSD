@@ -9,10 +9,26 @@ namespace BDDHotelDemo.Services
 {
     public class RoomSearchService
     {
+        public string ErrorMessage { get; set; } = string.Empty;
         public bool EnableSearch { get; set; }
         public List<HotelRoom> Rooms { get; set; } = [];
-
         public List<RoomBooking> RoomBookings { get; set; } = [];
+        public SearchCriteria SearchCriteria { get; set; }
+
+        public void SpecifySearchCriteria(SearchCriteria searchCriteria)
+        {
+            SearchCriteria = searchCriteria;
+            if (SearchCriteria.CheckOutDate <= SearchCriteria.CheckInDate)
+            {
+                ErrorMessage = "Check-out date must be after check-in date.";
+                EnableSearch = false;
+            }
+            else
+            {
+                EnableSearch = true;
+            }
+
+        }
 
         public List<HotelRoom> Search(SearchCriteria searchCriteria)
         {

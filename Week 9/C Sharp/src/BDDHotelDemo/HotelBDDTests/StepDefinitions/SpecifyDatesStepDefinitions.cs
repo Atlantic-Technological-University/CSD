@@ -31,24 +31,14 @@ namespace HotelBDDTests.StepDefinitions
         public void WhenTheUserSpecifiesACheckOutDateOf(string checkOutDate)
         {
             _searchCriteria.CheckOutDate = DateOnly.Parse(checkOutDate, new CultureInfo("en-GB"));
+            _roomSearchService.SpecifySearchCriteria(_searchCriteria);
 
-            if (_searchCriteria.CheckOutDate <= _searchCriteria.CheckInDate)
-            {
-                _roomSearchService.EnableSearch = false;
-                _errorMessage = "Check-out date must be after check-in date.";
-            }
-            else
-            {
-                _roomSearchService.EnableSearch = true;
-                _roomSearchService.Search(_searchCriteria);
-            }
-            
         }
 
         [Then("generate the error message {string}")]
         public void ThenGenerateTheErrorMessage(string expectedErrorMessage)
         {
-            Assert.Equal(expectedErrorMessage, _errorMessage);
+            Assert.Equal(expectedErrorMessage, _roomSearchService.ErrorMessage);
             
         }
 
